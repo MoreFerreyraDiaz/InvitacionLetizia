@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Letizia | Brillo, propósito y eternidad</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+
+            background-image: url("img/ChatGPT Image 25 ago 2026, 12_34_57 p.m..png");
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+
+            color: #4a3b35;
+            font-family: "Cormorant Garamond", serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+
+            background: rgba(25, 15, 15, 0.28);
+
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .countdown-section,
+        .invitation,
+        .details,
+        .dress-code,
+        .confirmation,
+        .final {
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .countdown-section,
+        .invitation,
+        .details,
+        .dress-code,
+        .confirmation,
+        .final {
+            box-shadow:
+                0 10px 35px rgba(75, 50, 40, 0.12);
+        }
+
+        /* ---------- MARCO DORADO PARA TODAS LAS SECCIONES ---------- */
+
+        .countdown-section,
+        .invitation,
+        .details,
+        .dress-code,
+        .confirmation,
+        .final {
+            width: 85%;
+            margin-left: auto;
+            margin-right: auto;
+
+            position: relative;
+
+            border-top: 1px solid #c6a77c;
+            border-bottom: 1px solid #c6a77c;
+
+            box-shadow:
+                0 10px 35px rgba(75, 50, 40, 0.12);
+        }
+
+        /* Marco dorado interior */
+
+        .countdown-section::before,
+        .invitation::before,
+        .details::before,
+        .dress-code::before,
+        .confirmation::before,
+        .final::before {
+            content: "";
+
+            position: absolute;
+
+            top: 15px;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+
+            border: 1px solid rgba(198, 167, 124, 0.45);
+
+            pointer-events: none;
+        }
+
+        /* ---------- PORTADA ---------- */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+
+            background: transparent;
+        }
+
+        .hero-image {
+            width: 340px;
+            height: 430px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 30px;
+
+            border: 1px solid #c6a77c;
+            padding: 8px;
+            background: #f4ede4;
+
+            box-shadow: 0 12px 30px rgba(75, 50, 40, 0.18);
+        }
+
+
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 700px;
+            padding: 30px;
+
+            color: #fffaf5;
+
+            text-shadow:
+                0 2px 10px rgba(0, 0, 0, 0.25),
+                0 4px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .small-title {
+            letter-spacing: 5px;
+            font-size: 15px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .name {
+            font-size: clamp(65px, 13vw, 130px);
+            color: #fff8ef;
+            font-weight: 400;
+            line-height: 0.9;
+        }
+
+        .subtitle {
+            font-family: "Great Vibes", cursive;
+            font-size: 42px;
+            color: #ffe3c4;
+            margin-top: 20px;
+        }
+
+        .line {
+            width: 100px;
+            height: 1px;
+            background: #b98b62;
+            margin: 30px auto;
+        }
+
+        .date {
+            letter-spacing: 4px;
+            font-size: 18px;
+        }
+
+        .scroll {
+            margin-top: 50px;
+            font-size: 13px;
+            letter-spacing: 3px;
+            opacity: 0.7;
+        }
+
+        /* ---------- CUENTA REGRESIVA ---------- */
+
+        .countdown-section {
+            padding: 100px 25px;
+            text-align: center;
+            background: #f3ece3;
+        }
+
+        .section-title {
+            font-size: 18px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .script {
+            font-family: "Great Vibes", cursive;
+            color: #a85c4f;
+            font-size: 45px;
+            margin-bottom: 50px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .time-box {
+            width: 130px;
+            min-height: 135px;
+            padding: 25px 10px;
+
+            background: rgba(255, 255, 255, 0.55);
+            border: 1px solid #d0b99e;
+
+            position: relative;
+        }
+
+        .time-box::before {
+            content: "";
+            position: absolute;
+            inset: 6px;
+            border: 1px solid rgba(185, 139, 98, 0.3);
+            pointer-events: none;
+        }
+
+        .number {
+            font-size: 48px;
+            color: #a85c4f;
+            font-weight: 500;
+        }
+
+        .label {
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* ---------- INVITACIÓN ---------- */
+
+        .invitation {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 25px;
+
+            background: #e8dcd0;
+        }
+
+        .card {
+            max-width: 650px;
+            width: 100%;
+            padding: 70px 45px;
+            text-align: center;
+
+            background: #f4ede4;
+            box-shadow: 0 20px 50px rgba(75, 50, 40, 0.15);
+
+            position: relative;
+        }
+
+        .card::before {
+            content: "";
+            position: absolute;
+            inset: 15px;
+            border: 1px solid #c6a77c;
+            pointer-events: none;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            letter-spacing: 5px;
+            font-weight: 400;
+        }
+
+        .card h3 {
+            font-family: "Great Vibes", cursive;
+            font-size: 60px;
+            color: #a85c4f;
+            font-weight: 400;
+            margin: 15px 0;
+        }
+
+        .card p {
+            max-width: 450px;
+            margin: 15px auto;
+            font-size: 19px;
+            line-height: 1.6;
+        }
+
+        .verse {
+            margin-top: 35px;
+            font-style: italic;
+            font-size: 16px;
+        }
+
+        /* ---------- DETALLES ---------- */
+
+        .details {
+            padding: 90px 25px;
+            text-align: center;
+
+            background: #f0e7dc;
+        }
+
+        .details-container {
+            max-width: 900px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .detail {
+            padding: 40px 20px;
+            border-top: 1px solid #c6a77c;
+            border-bottom: 1px solid #c6a77c;
+        }
+
+        .detail-icon {
+            font-size: 30px;
+            color: #c6a77c;
+            margin-bottom: 15px;
+        }
+
+        .detail h3 {
+            letter-spacing: 3px;
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .detail p {
+            font-size: 22px;
+        }
+
+        .map-container {
+            width: 100%;
+            max-width: 900px;
+            margin: 50px auto 0;
+            overflow: hidden;
+
+            border: 1px solid #c6a77c;
+            padding: 8px;
+            background: #f4ede4;
+
+            box-shadow: 0 12px 30px rgba(75, 50, 40, 0.12);
+        }
+
+        .map-container iframe {
+            display: block;
+            width: 100%;
+            height: 400px;
+            border: 0;
+        }
+
+
+        /* ---------- DRESS CODE ---------- */
+
+        .dress-code {
+            padding: 90px 25px;
+            text-align: center;
+
+            background: #f3ece3;
+
+            position: relative;
+        }
+
+        .dress-code .script {
+            margin-bottom: 45px;
+            color: #a85c4f;
+        }
+
+        .dress-code-content {
+            max-width: 600px;
+            margin: auto;
+
+            display: flex;
+            justify-content: center;
+            gap: 80px;
+        }
+
+        .dress-item {
+            min-width: 180px;
+        }
+
+        .dress-icon {
+            font-size: 28px;
+            color: #c6a77c;
+            margin-bottom: 15px;
+        }
+
+        .dress-item h3 {
+            font-size: 22px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-weight: 400;
+            color: #4a3b35;
+        }
+
+
+        /* ---------- CONFIRMAR ASISTENCIA ---------- */
+
+        .confirmation {
+            min-height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+
+            padding: 80px 25px;
+
+            background: #eee3d7;
+
+            border-top: 1px solid #c6a77c;
+            border-bottom: 1px solid #c6a77c;
+
+            position: relative;
+        }
+
+        .confirmation::before {
+            content: "";
+            position: absolute;
+
+            top: 15px;
+            bottom: 15px;
+            left: 25px;
+            right: 25px;
+
+            border: 1px solid rgba(198, 167, 124, 0.45);
+
+            pointer-events: none;
+        }
+
+        .confirmation-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .confirmation .script {
+            margin-bottom: 20px;
+            color: #a85c4f;
+        }
+
+        .confirmation p {
+            font-size: 19px;
+            line-height: 1.6;
+            color: #5a4841;
+            margin-bottom: 30px;
+        }
+
+        .whatsapp-button {
+            display: inline-block;
+
+            padding: 14px 32px;
+
+            background: #a85c4f;
+            color: #fffaf5;
+
+            text-decoration: none;
+
+            font-family: "Cormorant Garamond", serif;
+            font-size: 18px;
+            letter-spacing: 1px;
+
+            border: 1px solid #c6a77c;
+
+            box-shadow: 0 8px 20px rgba(75, 50, 40, 0.12);
+
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-button:hover {
+            background: #8f4c45;
+            transform: translateY(-2px);
+        }
+
+        /* ---------- FRASE FINAL ---------- */
+
+        .final {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 25px;
+
+            background: rgba(198, 95, 88, 0.72);
+        }
+
+        .final-content {
+            color: #fff8f0;
+        }
+
+        .final h2 {
+            font-family: "Great Vibes", cursive;
+            font-size: clamp(55px, 10vw, 90px);
+            font-weight: 400;
+        }
+
+        .final p {
+            font-size: 21px;
+            letter-spacing: 2px;
+            margin-top: 20px;
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+
+        @media (max-width: 700px) {
+
+            .countdown {
+                gap: 10px;
+            }
+
+            .time-box {
+                width: 100px;
+                min-height: 115px;
+            }
+
+            .number {
+                font-size: 38px;
+            }
+
+            .details-container {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 60px 25px;
+            }
+
+            .card h3 {
+                font-size: 50px;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .countdown-section,
+            .invitation,
+            .details,
+            .dress-code,
+            .confirmation,
+            .final {
+                width: 94%;
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- PORTADA -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <div class="small-title">
+                Una invitación especial
+            </div>
+
+            <img src="img/ChatGPT Image 23 ago 2026, 08_01_20 p.m..png" alt="Letizia" class="hero-image">
+
+            <div class="date">
+                22 · NOVIEMBRE · 2026
+            </div></br></br>
+
+        </div>
+
+    </section>
+
+
+    <!-- CUENTA REGRESIVA -->
+
+    <section class="countdown-section">
+
+        <div class="script">
+            Faltan:
+        </div>
+
+        <div class="countdown">
+
+            <div class="time-box">
+                <div class="number" id="days">00</div>
+                <div class="label">Días</div>
+            </div>
+
+            <div class="time-box">
+                <div class="number" id="hours">00</div>
+                <div class="label">Horas</div>
+            </div>
+
+            <div class="time-box">
+                <div class="number" id="minutes">00</div>
+                <div class="label">Minutos</div>
+            </div>
+
+            <div class="time-box">
+                <div class="number" id="seconds">00</div>
+                <div class="label">Segundos</div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INVITACIÓN -->
+
+    <section class="invitation">
+
+        <div class="card">
+
+            "Porque yo sé los planes que tengo para ustedes —declara el Señor—, planes de bienestar y no de calamidad,
+            para darles un futuro y una esperanza"
+            <br>
+            <small>Jeremías 29:11</small>
+
+        </div>
+
+    </section>
+
+
+    <!-- DETALLES -->
+
+    <section class="details">
+
+        <div class="script">
+            Un día para recordar
+        </div>
+
+        <div class="details-container">
+
+            <div class="detail">
+
+                <div class="detail-icon">☀</div>
+
+                <h3>Fecha</h3>
+
+                <p>
+                    22 de noviembre de 2026
+                </p>
+
+            </div>
+
+            <div class="detail">
+
+                <div class="detail-icon">◷</div>
+
+                <h3>Hora</h3>
+
+                <p>
+                    16:30 hs a 22:00 hs
+                </p>
+
+            </div>
+
+            <div class="detail">
+
+                <div class="detail-icon">⌖</div>
+
+                <h3>Lugar</h3>
+
+                <p>
+                    Chile y RN11<br>
+                    Oliveros, Santa Fe
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3361.376521754079!2d-60.848052859732086!3d-32.59614788982353!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2sar!4v1787681629753!5m2!1ses-419!2sar"
+                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+    </section>
+
+    <!-- DRESS CODE -->
+
+    <section class="dress-code">
+
+        <div class="script">
+            Dress Code
+        </div>
+
+        <div class="dress-code-content">
+
+            <div class="dress-item">
+                <div class="dress-icon">✦</div>
+                <h3>Semi formal</h3>
+            </div>
+
+            <div class="dress-item">
+                <div class="dress-icon">✧</div>
+                <h3>Colores claros</h3>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONFIRMAR ASISTENCIA -->
+
+    <section class="confirmation">
+
+        <div class="confirmation-content">
+
+            <div class="script">
+                ¿Nos acompañás?
+            </div>
+
+            <a href="https://wa.me/5493413940816?text=Hola%2C%20quiero%20confirmar%20mi%20asistencia."
+                class="whatsapp-button" target="_blank" rel="noopener noreferrer">
+                Confirmar asistencia
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+
+    <section class="final">
+
+        <div class="final-content">
+
+            <h2>Quiero que seas parte<br>de este día especial</h2>
+
+            <p>
+                LETIZIA
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        // FECHA DEL EVENTO
+        const fechaEvento = new Date(
+            "November 22, 2026 16:30:00"
+        ).getTime();
+
+
+        function actualizarCuentaRegresiva() {
+
+            const ahora = new Date().getTime();
+
+            const diferencia = fechaEvento - ahora;
+
+
+            // Si llegó la fecha
+            if (diferencia <= 0) {
+
+                document.querySelector(".countdown").innerHTML = `
+                    <div class="script">
+                        ✦ El gran día llegó ✦
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            const dias = Math.floor(
+                diferencia / (1000 * 60 * 60 * 24)
+            );
+
+            const horas = Math.floor(
+                (diferencia / (1000 * 60 * 60)) % 24
+            );
+
+            const minutos = Math.floor(
+                (diferencia / (1000 * 60)) % 60
+            );
+
+            const segundos = Math.floor(
+                (diferencia / 1000) % 60
+            );
+
+
+            document.getElementById("days").textContent =
+                String(dias).padStart(2, "0");
+
+            document.getElementById("hours").textContent =
+                String(horas).padStart(2, "0");
+
+            document.getElementById("minutes").textContent =
+                String(minutos).padStart(2, "0");
+
+            document.getElementById("seconds").textContent =
+                String(segundos).padStart(2, "0");
+        }
+
+
+        actualizarCuentaRegresiva();
+
+        setInterval(actualizarCuentaRegresiva, 1000);
+
+    </script>
+
+</body>
+
+</html>
