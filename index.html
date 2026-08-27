@@ -525,33 +525,7 @@
 
         @media (max-width: 700px) {
 
-            .countdown {
-                gap: 10px;
-            }
-
-            .time-box {
-                width: 100px;
-                min-height: 115px;
-            }
-
-            .number {
-                font-size: 38px;
-            }
-
-            .details-container {
-                grid-template-columns: 1fr;
-            }
-
-            .card {
-                padding: 60px 25px;
-            }
-
-            .card h3 {
-                font-size: 50px;
-            }
-        }
-
-        @media (max-width: 700px) {
+            /* ---------- SECCIONES ---------- */
 
             .countdown-section,
             .invitation,
@@ -560,6 +534,168 @@
             .confirmation,
             .final {
                 width: 94%;
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            /* ---------- MARCOS ---------- */
+
+            .countdown-section::before,
+            .invitation::before,
+            .details::before,
+            .dress-code::before,
+            .confirmation::before,
+            .final::before {
+                left: 10px;
+                right: 10px;
+                top: 10px;
+                bottom: 10px;
+            }
+
+
+            /* ---------- PORTADA ---------- */
+
+            .hero-content {
+                padding: 20px;
+            }
+
+            .small-title {
+                font-size: 12px;
+                letter-spacing: 3px;
+            }
+
+            .date {
+                font-size: 15px;
+                letter-spacing: 3px;
+            }
+
+
+            /* ---------- CUENTA REGRESIVA ---------- */
+
+            .countdown-section {
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+
+            .countdown-section .script {
+                font-size: 38px;
+                margin-bottom: 30px;
+            }
+
+            .countdown {
+                gap: 8px;
+                margin-top: 20px;
+            }
+
+            .time-box {
+                width: 75px;
+                min-height: 95px;
+                padding: 18px 5px;
+            }
+
+            .number {
+                font-size: 32px;
+            }
+
+            .label {
+                font-size: 10px;
+                letter-spacing: 1.5px;
+            }
+
+
+            /* ---------- INVITACIÓN ---------- */
+
+            .card {
+                padding: 55px 25px;
+            }
+
+            .card h3 {
+                font-size: 45px;
+            }
+
+            .card p {
+                font-size: 17px;
+            }
+
+
+            /* ---------- DETALLES ---------- */
+
+            .details-container {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .detail {
+                padding: 30px 15px;
+            }
+
+
+            /* ---------- DRESS CODE ---------- */
+
+            .dress-code {
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+
+            .dress-code .script {
+                font-size: 38px;
+                margin-bottom: 35px;
+            }
+
+            .dress-code-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 25px;
+            }
+
+            .dress-item {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .dress-item h3 {
+                font-size: 15px;
+                letter-spacing: 2px;
+            }
+
+
+            /* ---------- CONFIRMAR ASISTENCIA ---------- */
+
+            .confirmation {
+                padding-top: 70px;
+                padding-bottom: 70px;
+            }
+
+            .confirmation .script {
+                font-size: 38px;
+            }
+
+            .confirmation p {
+                font-size: 17px;
+            }
+
+            .whatsapp-button {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+
+            /* ---------- FINAL ---------- */
+
+            .final {
+                min-height: 55vh;
+                padding: 60px 25px;
+            }
+
+            .final h2 {
+                font-size: clamp(42px, 12vw, 60px);
+                line-height: 1.05;
+            }
+
+            .final p {
+                font-size: 17px;
+                letter-spacing: 2px;
+                margin-top: 15px;
             }
 
         }
