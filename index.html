@@ -701,6 +701,95 @@
                 margin-top: 15px;
             }
 
+            .scroll-alert {
+                bottom: 25px;
+                right: 18px;
+
+                padding: 9px 13px;
+
+                font-size: 9px;
+                letter-spacing: 1.5px;
+            }
+
+            .scroll-alert-arrow {
+                font-size: 18px;
+            }
+
+        }
+
+        /* ---------- BARRA DE SCROLL ---------- */
+
+        /* Ancho de la barra */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        /* Fondo de la barra */
+        ::-webkit-scrollbar-track {
+            background: #eee6dc;
+        }
+
+        /* Parte que se desplaza */
+        ::-webkit-scrollbar-thumb {
+            background: #c6a77c;
+            border-radius: 10px;
+            border: 2px solid #eee6dc;
+        }
+
+        /* Al pasar el mouse */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b98b62;
+        }
+
+        /* ---------- ALERTA DE SCROLL ---------- */
+
+        .scroll-alert {
+            position: absolute;
+
+            bottom: 35px;
+            right: 35px;
+
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            padding: 10px 16px;
+
+            background: rgba(244, 237, 228, 0.88);
+
+            border: 1px solid #c6a77c;
+
+            color: #6b5145;
+
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+
+            box-shadow: 0 5px 18px rgba(75, 50, 40, 0.15);
+
+            transition:
+                opacity 0.5s ease,
+                transform 0.5s ease;
+        }
+
+        .scroll-alert-arrow {
+            font-size: 20px;
+            color: #b98b62;
+
+            animation: arrowDown 1.5s ease-in-out infinite;
+        }
+
+        @keyframes arrowDown {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(5px);
+            }
+
         }
     </style>
 </head>
@@ -723,6 +812,11 @@
                 22 · NOVIEMBRE · 2026
             </div></br></br>
 
+        </div>
+
+        <div class="scroll-alert">
+            <span>Deslizá hacia abajo</span>
+            <span class="scroll-alert-arrow">↓</span>
         </div>
 
     </section>
@@ -961,6 +1055,22 @@
         actualizarCuentaRegresiva();
 
         setInterval(actualizarCuentaRegresiva, 1000);
+
+        window.addEventListener("scroll", function () {
+
+            const scrollAlert = document.querySelector(".scroll-alert");
+
+            if (window.scrollY > 50) {
+                scrollAlert.style.opacity = "0";
+                scrollAlert.style.transform = "translateY(10px)";
+                scrollAlert.style.pointerEvents = "none";
+            } else {
+                scrollAlert.style.opacity = "1";
+                scrollAlert.style.transform = "translateY(0)";
+                scrollAlert.style.pointerEvents = "auto";
+            }
+
+        });
 
     </script>
 
