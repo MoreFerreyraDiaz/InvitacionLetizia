@@ -768,9 +768,8 @@
 
             box-shadow: 0 5px 18px rgba(75, 50, 40, 0.15);
 
-            transition:
-                opacity 0.5s ease,
-                transform 0.5s ease;
+            animation: hideScrollAlert 0.5s ease forwards;
+            animation-delay: 2s;
         }
 
         .scroll-alert-arrow {
@@ -789,6 +788,21 @@
 
             50% {
                 transform: translateY(5px);
+            }
+
+        }
+
+        @keyframes hideScrollAlert {
+
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            to {
+                opacity: 0;
+                transform: translateY(-8px);
+                pointer-events: none;
             }
 
         }
@@ -1056,22 +1070,6 @@
         actualizarCuentaRegresiva();
 
         setInterval(actualizarCuentaRegresiva, 1000);
-
-        window.addEventListener("scroll", function () {
-
-            const scrollAlert = document.querySelector(".scroll-alert");
-
-            if (window.scrollY > 50) {
-                scrollAlert.style.opacity = "0";
-                scrollAlert.style.transform = "translateY(10px)";
-                scrollAlert.style.pointerEvents = "none";
-            } else {
-                scrollAlert.style.opacity = "1";
-                scrollAlert.style.transform = "translateY(0)";
-                scrollAlert.style.pointerEvents = "auto";
-            }
-
-        });
 
     </script>
 
